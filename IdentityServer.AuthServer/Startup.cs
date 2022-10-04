@@ -1,6 +1,8 @@
+using IdentityServer.AuthServer.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -23,6 +25,11 @@ namespace IdentityServer.AuthServer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddDbContext<CustomDbContext>(option =>
+            {
+                option.UseSqlServer(Configuration.GetConnectionString("SqlServer"));
+            });
 
             services.AddIdentityServer()
                 .AddInMemoryApiResources(Config.GetApiResources())
@@ -54,7 +61,7 @@ namespace IdentityServer.AuthServer
             app.UseStaticFiles();
 
             app.UseRouting();
-            app.UseIdentityServer(); 
+            app.UseIdentityServer();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

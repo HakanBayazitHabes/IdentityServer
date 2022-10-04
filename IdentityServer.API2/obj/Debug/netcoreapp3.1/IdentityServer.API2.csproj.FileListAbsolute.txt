@@ -27,3 +27,4 @@ C:\Users\user\source\repos\IdentityServer\IdentityServer.API2\bin\Debug\netcorea
 C:\Users\user\source\repos\IdentityServer\IdentityServer.API2\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\user\source\repos\IdentityServer\IdentityServer.API2\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\user\source\repos\IdentityServer\IdentityServer.API2\obj\Debug\netcoreapp3.1\IdentityServer.API2.csproj.CopyComplete
+C:\Users\user\source\repos\IdentityServer\IdentityServer.API2\obj\Debug\netcoreapp3.1\IdentityServer.API2.csproj.AssemblyReference.cache
