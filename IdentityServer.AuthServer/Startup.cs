@@ -1,4 +1,6 @@
 using IdentityServer.AuthServer.Models;
+using IdentityServer.AuthServer.Repository;
+using IdentityServer.AuthServer.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,6 +28,8 @@ namespace IdentityServer.AuthServer
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddScoped<ICustomUserRepository, CustomUserRepository>();
+
             services.AddDbContext<CustomDbContext>(option =>
             {
                 option.UseSqlServer(Configuration.GetConnectionString("SqlServer"));
@@ -36,9 +40,10 @@ namespace IdentityServer.AuthServer
                 .AddInMemoryApiScopes(Config.GetApiScopes())
                 .AddInMemoryClients(Config.GetClients())
                 .AddInMemoryIdentityResources(Config.GetIdentityResources())
-                .AddTestUsers(Config.GetUsers().ToList())
+                //.AddTestUsers(Config.GetUsers().ToList())
                 //otomatik olarak public-key  private-key oluþturur,canlýya alacaðýmýz zaman public-key ve private-key i uzak sunucudan(azure gibi) alýnmasý gerekir. 
-                .AddDeveloperSigningCredential();
+                .AddDeveloperSigningCredential()
+                .AddProfileService<CustomProfileService>();
 
 
             services.AddControllersWithViews();

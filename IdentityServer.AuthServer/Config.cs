@@ -46,6 +46,7 @@ namespace IdentityServer.AuthServer
         {
             return new List<IdentityResource>()
             {
+                new IdentityResources.Email(),
                 //Subject Id, kullanıcı id , zorunlu 
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
@@ -109,7 +110,7 @@ namespace IdentityServer.AuthServer
                     //IdentityServer dan çıkış yaptığımızda yönlendirme yapmalyız
                     PostLogoutRedirectUris=new List<string>{ "https://localhost:5006/signout-callback-oidc" },
                     //izinler
-                    AllowedScopes={IdentityServerConstants.StandardScopes.OpenId,    IdentityServerConstants.StandardScopes.Profile,"api1.read",IdentityServerConstants.StandardScopes.OfflineAccess,"CountryAndCity","Roles"},
+                    AllowedScopes={IdentityServerConstants.StandardScopes.Email,IdentityServerConstants.StandardScopes.OpenId,    IdentityServerConstants.StandardScopes.Profile,"api1.read",IdentityServerConstants.StandardScopes.OfflineAccess,"CountryAndCity","Roles"},
 
                     AccessTokenLifetime=2*60*60,
                     //refresh tokunu açıyoruz
@@ -139,7 +140,19 @@ namespace IdentityServer.AuthServer
                     RefreshTokenUsage=TokenUsage.ReUse,
                     RefreshTokenExpiration=TokenExpiration.Absolute,
                     AbsoluteRefreshTokenLifetime=(int)(DateTime.Now.AddDays(60)-DateTime.Now).TotalSeconds,
-                    RequireConsent = false  
+                    RequireConsent = false
+                },
+                new Client()
+                {
+                    ClientId="js-client",
+                    RequireClientSecret=false,
+                    AllowedGrantTypes=GrantTypes.Code,
+                    ClientName="Js Client (Angular)",
+                    AllowedScopes={IdentityServerConstants.StandardScopes.Email,IdentityServerConstants.StandardScopes.OpenId,    IdentityServerConstants.StandardScopes.Profile,"api1.read",IdentityServerConstants.StandardScopes.OfflineAccess,"CountryAndCity","Roles"},
+                    RedirectUris={"http://localhost:4200/callback" },
+                    AllowedCorsOrigins={ "http://localhost:4200"},
+                    PostLogoutRedirectUris={ "http://localhost:4200"}
+
                 }
 
             };
