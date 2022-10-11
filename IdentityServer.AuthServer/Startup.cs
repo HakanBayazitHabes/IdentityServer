@@ -43,7 +43,8 @@ namespace IdentityServer.AuthServer
                 //.AddTestUsers(Config.GetUsers().ToList())
                 //otomatik olarak public-key  private-key oluþturur,canlýya alacaðýmýz zaman public-key ve private-key i uzak sunucudan(azure gibi) alýnmasý gerekir. 
                 .AddDeveloperSigningCredential()
-                .AddProfileService<CustomProfileService>();
+                .AddProfileService<CustomProfileService>()
+                .AddResourceOwnerValidator<ResourcesOwnerPasswordValidator>();//yazmýþ olduðumuz sýnýfýmýzýn içerisine girecek böyle bir kullanýcý vardýr veya yoktur diyecektir buna yapan identityserver olacaktýr
 
 
             services.AddControllersWithViews();
