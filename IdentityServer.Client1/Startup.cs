@@ -34,11 +34,13 @@ namespace IdentityServer.Client1
                 //Client1 de oluþacak cookimin ismi Cookies olacak
                 options.DefaultScheme = "Cookies";
                 //IdentityServer'dan gelen cookiler ile haberleþecek
-                options.DefaultChallengeScheme = "oidc";
+                //options.DefaultChallengeScheme = "oidc";
             }).AddCookie("Cookies", opts =>
             {
+                opts.LoginPath = "/Login/Index";
                 opts.AccessDeniedPath = "/Home/AccessDenied";
-            }).AddOpenIdConnect("oidc", opts =>//Burada Client daki cookiler ile IdentityServerdaki clientla iletiþe geçiriyoruz
+            });
+            /*.AddOpenIdConnect("oidc", opts =>//Burada Client daki cookiler ile IdentityServerdaki clientla iletiþe geçiriyoruz
             {
                 opts.SignInScheme = "Cookies";
                 opts.Authority = "https://localhost:5001";
@@ -65,7 +67,7 @@ namespace IdentityServer.Client1
                     RoleClaimType = "role"
                 };
 
-            });
+            });*/ // artýk bu baðlantýya ihtiyaç yok. Login iþlemlerimizi kendi clientlar üzerinden gerçekleþeceði için Resources Owner Credantial ile
 
             services.AddControllersWithViews();
         }
