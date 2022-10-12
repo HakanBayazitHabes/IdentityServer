@@ -50,8 +50,8 @@ namespace IdentityServer.Client1.Controllers
             var refreshToken = await HttpContext.GetTokenAsync(OpenIdConnectParameterNames.RefreshToken);
 
             RefreshTokenRequest refreshTokenRequest = new RefreshTokenRequest();
-            refreshTokenRequest.ClientId = _configuration["Client1Mvc:ClientId"];
-            refreshTokenRequest.ClientSecret = _configuration["Client1Mvc:ClientSecret"];
+            refreshTokenRequest.ClientId = _configuration["ClientResourceOwner:ClientId"];
+            refreshTokenRequest.ClientSecret = _configuration["ClientResourceOwner:ClientSecret"];
             refreshTokenRequest.RefreshToken = refreshToken;
             refreshTokenRequest.Address = disco.TokenEndpoint;
 

@@ -54,11 +54,11 @@ namespace IdentityServer.AuthServer
                     opts.ConfigureDbContext = c => c.UseSqlServer(Configuration.GetConnectionString("SqlServer"), sqlopts =>
                        sqlopts.MigrationsAssembly(assemblyName));
                 })
-                .AddInMemoryApiResources(Config.GetApiResources())
-                .AddInMemoryApiScopes(Config.GetApiScopes())
-                .AddInMemoryClients(Config.GetClients())
-                .AddInMemoryIdentityResources(Config.GetIdentityResources())
-                //.AddTestUsers(Config.GetUsers().ToList())
+                //.AddInMemoryApiResources(Config.GetApiResources())                   |\
+                //.AddInMemoryApiScopes(Config.GetApiScopes())                            | \
+                //.AddInMemoryClients(Config.GetClients())                                      |  = Bu kýsým veri tabanýna aktarýldýðý için burada kullanýma gerek kalmadý
+                //.AddInMemoryIdentityResources(Config.GetIdentityResources())      | /
+                //.AddTestUsers(Config.GetUsers().ToList())                                      |/
                 //otomatik olarak public-key  private-key oluþturur,canlýya alacaðýmýz zaman public-key ve private-key i uzak sunucudan(azure gibi) alýnmasý gerekir. 
                 .AddDeveloperSigningCredential()
                 .AddProfileService<CustomProfileService>()

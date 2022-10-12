@@ -94,3 +94,6 @@ C:\Users\user\source\repos\IdentityServer\IdentityServer.AuthServer\bin\Debug\ne
 C:\Users\user\source\repos\IdentityServer\IdentityServer.AuthServer\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\user\source\repos\IdentityServer\IdentityServer.AuthServer\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\user\source\repos\IdentityServer\IdentityServer.AuthServer\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\user\source\repos\IdentityServer\IdentityServer.AuthServer\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\user\source\repos\IdentityServer\IdentityServer.AuthServer\bin\Debug\netcoreapp3.1\IdentityServer4.EntityFramework.dll
+C:\Users\user\source\repos\IdentityServer\IdentityServer.AuthServer\bin\Debug\netcoreapp3.1\IdentityServer4.EntityFramework.Storage.dll
