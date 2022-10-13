@@ -81,5 +81,22 @@ namespace IdentityServer.Client1.Controllers
 
             return RedirectToAction("Index", "User");
         }
+
+
+        public IActionResult SignUp()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> SignUp(UserSaveViewModel userSaveViewModel)
+        {
+            return RedirectToAction(nameof(Index));
+        }
+
+
+
+
+
+
     }
 }

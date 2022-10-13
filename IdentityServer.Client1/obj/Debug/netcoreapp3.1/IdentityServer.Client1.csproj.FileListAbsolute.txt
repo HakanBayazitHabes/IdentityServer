@@ -123,3 +123,4 @@ C:\Users\user\source\repos\IdentityServer\IdentityServer.Client1\obj\Debug\netco
 C:\Users\user\source\repos\IdentityServer\IdentityServer.Client1\obj\Debug\netcoreapp3.1\Razor\Views\User\CustomerAction.cshtml.g.cs
 C:\Users\user\source\repos\IdentityServer\IdentityServer.Client1\obj\Debug\netcoreapp3.1\Razor\Views\Home\AccessDenied.cshtml.g.cs
 C:\Users\user\source\repos\IdentityServer\IdentityServer.Client1\obj\Debug\netcoreapp3.1\Razor\Views\Login\Index.cshtml.g.cs
+C:\Users\user\source\repos\IdentityServer\IdentityServer.Client1\obj\Debug\netcoreapp3.1\Razor\Views\Login\SignUp.cshtml.g.cs

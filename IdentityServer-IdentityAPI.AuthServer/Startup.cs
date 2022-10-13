@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using IdentityServerIdentityAPI.AuthServer.Service;
 
 namespace IdentityServer_IdentityAPI.AuthServer
 {
@@ -52,7 +53,9 @@ namespace IdentityServer_IdentityAPI.AuthServer
                 .AddInMemoryApiScopes(Config.GetApiScopes())
                 .AddInMemoryApiResources(Config.GetApiResources())
                 .AddInMemoryClients(Config.GetClients())
-                .AddAspNetIdentity<ApplicationUser>();
+                .AddAspNetIdentity<ApplicationUser>()
+                //Aşağıdaki komut yukarıdaki komuttan sonra yazılır.Çünkü AspNetIdentity içerind aşağıdaki komutu yazan class'ı bulunuyor
+                .AddResourceOwnerValidator<IdentityResourceOwnerPasswordValidator>();
 
             // not recommended for production - you need to store your key material somewhere secure
             builder.AddDeveloperSigningCredential();
